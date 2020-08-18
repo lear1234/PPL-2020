@@ -1,0 +1,12 @@
+1)  How is array declaration and initialization handled?
+1. Arrays is declared in a single statement with no initialisation and explicit
+   size. 
+Initialisation takes place one element per statement .
+
+2)Why does the statement a[i] = b[i] get broken down to two steps with
+            an intermediate temporary?
+->because a[i] = b[i] is like *(a+i)=*(b+i)
+hence this operation is broken into 2 parts _1=*(b+i) and *(a+i)=_1 for simplicity
+
+3   Why are there CLOBBER statements at the end?
+->DOUBT

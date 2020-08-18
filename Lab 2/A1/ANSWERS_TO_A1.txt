@@ -1,0 +1,49 @@
+ 1   How  do the  declarations  look in  the  GIMPLE? Specifically,  what
+            happens to multiple  variables declared and initialized  on the same
+            line? What happens to global declaration [int Z]?
+
+A1)For the variables those are single line declarations , in gimple they look same as 
+that of the declaration in c file.
+For multiple variables declared on the same line they are converted to single line declarations.
+The global declaration of int Z is not visible in gimple.
+
+
+
+2   How are complex  expressions such as [c  = a * b +  25] broken down?
+            Can you  determine a  rule as  to when  temporary variables  will be
+            introduced?
+A2)First on one line result of a*b is stored in a variable and then that result is
+added with 25 to get the value of the given expression.
+In gimple , each expression is broken into small parts , and on each line the
+small expression with single operand is solved and by combining the result of such small 
+operations ,a  given expression is solved in gimple.
+
+
+
+3)   How are  floats/doubles represented in  GIMPLE? What happens  when a
+            float/double is assigned to an integer in [Z = r]?
+A3)Floats and doubles are represented using scientific notation like    
+	34.5 reprensented as 3.45e+1   in  gimple.  
+Float values integer part is taken using (int) type casting.
+And this value is then assigned to the int variable.
+
+
+
+4)   How  are reads/writes  to the  global variable  Z performed?  Why is
+            there a temporary introduced  for the statement [Z = Z  + 1] but not
+            for the statements [q = Z] or [Z = p]?
+->DOUBT
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
